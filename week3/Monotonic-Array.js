@@ -2,6 +2,8 @@
  * @param {number[]} nums
  * @return {boolean}
  */
+
+// Submission 1
 var isMonotonic = function(nums) {
     let isIncreasing = true;
     let isDecreasing = true;
@@ -30,6 +32,7 @@ var isMonotonic = function(nums) {
 };
 
 
+// Submission 2
 var isMonotonic = function(nums) {
     let isIncreasing = true;
     let isDecreasing = true;
