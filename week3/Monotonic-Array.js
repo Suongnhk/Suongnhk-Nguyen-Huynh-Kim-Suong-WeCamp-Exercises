@@ -1,0 +1,44 @@
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var isMonotonic = function(nums) {
+    let isIncreasing = true;
+    let isDecreasing = true;
+    for (let k = 0; k < nums.length - 1; k++) {
+        if (nums[k] < nums[k + 1]) {
+            for (let i = 0; i < nums.length - 1; i++) {
+                if (nums[i] > nums[i+1]) {
+                    isIncreasing = false;
+                    break;
+                }
+            }
+            return isIncreasing;
+        }
+        
+        if (nums[k] > nums[k + 1]) {
+            for (let j = 0; j < nums.length - 1; j++) {
+                if (nums[j] < nums[j+1]) {
+                    isDecreasing = false;
+                    break;
+                }
+            }
+            return isDecreasing;
+        }
+    }
+    return true;
+};
+
+
+var isMonotonic = function(nums) {
+    let isIncreasing = true;
+    let isDecreasing = true;
+    for (let i = 0; i < nums.length - 1; i++) {
+        if (nums[i] > nums[i + 1]) {
+            isIncreasing = false;
+        } else if (nums[i] < nums[i + 1]) {
+            isDecreasing = false;
+        }
+    }
+    return isIncreasing || isDecreasing;
+};
