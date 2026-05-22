@@ -23,3 +23,19 @@ var nextGreaterElement = function(nums1, nums2) {
     }
     return ans;
 };
+
+// Submission 2 
+var nextGreaterElement = function(nums1, nums2) {
+    let stack = [];
+    let map = {};
+    for (let i = 0; i < nums2.length; i++) {
+        while (stack.length > 0 && nums2[i] > stack[stack.length - 1]) {
+            map[stack.pop()] = nums2[i];
+        }
+        stack.push(nums2[i]);
+    }
+    while (stack.length > 0) {
+        map[stack.pop()] = -1;
+    }
+    return nums1.map(n => map[n]);
+};
