@@ -14,3 +14,26 @@ var isAnagram = function(s, t) {
     }
     return true
 };
+
+// Submission 2
+var isAnagram = function(s, t) {
+    if (s.length !== t.length) {
+        return false;
+    }
+    let count = {};
+    for (let char of s) {
+        if (count[char]) {
+            count[char] += 1;
+        } else {
+            count[char] = 1
+        }
+    }
+    for (let char of t) {
+        if (!count[char]) {
+            return false;
+        } else {
+            count[char]--;
+        }
+    }
+    return true;
+};
