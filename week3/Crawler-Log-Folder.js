@@ -13,3 +13,19 @@ var minOperations = function(logs) {
     }
     return depth;
 };
+
+// Submission 2
+var minOperations = function(logs) {
+    let stack = [];
+    for (let i = 0; i < logs.length; i++) {
+        let top = stack[stack.length - 1];
+        if ((!top && logs[i] === "../") || (logs[i] === "./")) {
+            continue;
+        } else if (top && logs[i] === "../") {
+            stack.pop();
+        } else if (logs[i] !== "./"){
+            stack.push(logs[i]);
+        }
+    }
+    return stack.length;
+};
