@@ -41,6 +41,8 @@ var isMonotonic = function(nums) {
             isIncreasing = false;
         } else if (nums[i] < nums[i + 1]) {
             isDecreasing = false;
+        } else if (isDecreasing === false && isIncreasing === false) {
+            return false;
         }
     }
     return isIncreasing || isDecreasing;
