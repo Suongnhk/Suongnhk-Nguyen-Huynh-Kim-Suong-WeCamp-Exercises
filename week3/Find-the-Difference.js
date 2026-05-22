@@ -14,3 +14,21 @@ var findTheDifference = function(s, t) {
     }
     return result = t[t.length - 1];
 };
+
+ // Submission 2
+var findTheDifference = function(s, t) {
+    let map = {};
+    for (let char of s) {
+        if (map[char]) {
+            map[char] += 1;
+        } else {
+            map[char] = 1;
+        }
+    }
+    for (let char of t) {
+        if ((!map[char]) || (map[char] === 0)) {
+            return char;
+        }
+        map[char]--
+    }
+};
